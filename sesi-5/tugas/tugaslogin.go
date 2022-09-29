@@ -7,6 +7,7 @@ import (
 	"github.com/howeyc/gopass"
 )
 
+// fungsi validasi
 func validasiAkun(username string, password []byte) (string, error) {
 	pl := string(password[:])
 	if username != "syafti" || pl != "123" {
@@ -19,11 +20,14 @@ func validasiAkun(username string, password []byte) (string, error) {
 func main() {
 	var username string
 
+	//input username
 	fmt.Println("Silahkan masukan username anda :")
 	fmt.Scanln(&username)
+	//input password
 	fmt.Println("Silahkan masukan password anda :")
 	password, _ := gopass.GetPasswdMasked()
 
+	//validasi username dan password
 	if valid, err := validasiAkun(username, password); err != nil {
 		fmt.Println(err.Error())
 	} else {
